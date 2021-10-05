@@ -1,0 +1,4 @@
+[submodule "linux"]
+	path = linux
+	url = git@github.com:ycho98/linux
+	branch = csi2115-f21
