@@ -1,0 +1,20 @@
+name: linux
+
+on:
+  push:
+    paths:
+      - 'linux'
+      
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Download and Build linux repository
+      run: |
+        currentCommitNum=$(git rev-parse @:./linux)
+        wget https://github.com/ycho98/linux/archive/$currentCommitNum.zip
+        unzip $currentCommitNum.zip
+        ./build-linux.sh linux-$currentCommitNum tinyconfig
